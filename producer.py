@@ -15,18 +15,40 @@ def Mostrar_Menu():
 
 def obtener_parametros(tarea):
     try:
-        if tarea == "1": 
-            num1 = float(input("Digite el primer número: "))
-            num2 = float(input("Digite el segundo número: "))
+        if tarea == "1":
+            while True:
+                try:
+                    num1 = float(input("Digite el primer número: "))
+                    break
+                except ValueError:
+                    print("Entrada inválida. Por favor, ingrese un número.")
+            while True:
+                try:
+                    num2 = float(input("Digite el segundo número: "))
+                    break
+                except ValueError:
+                    print("Entrada inválida. Por favor, ingrese un número.")
             return [num1, num2]
-        elif tarea == "2":  
-            cadena = input("Digite la cadena: ")
-            return [cadena]
-        elif tarea == "3":  
-            cadena = input("Digite la cadena a invertir: ")
-            return [cadena]
-        elif tarea == "4" or tarea.lower() == "salir":  
+
+        elif tarea == "2":
+            while True:
+                cadena = input("Digite la cadena: ").strip()
+                if cadena:
+                    return [cadena]
+                else:
+                    print("La cadena no puede estar vacía. Intente de nuevo.")
+
+        elif tarea == "3":
+            while True:
+                cadena = input("Digite la cadena a invertir: ").strip()
+                if cadena:
+                    return [cadena]
+                else:
+                    print("La cadena no puede estar vacía. Intente de nuevo.")
+
+        elif tarea == "4" or tarea.lower() == "salir":
             return []
+
         else:
             print("Opción no válida. Intente nuevamente.")
             return None
